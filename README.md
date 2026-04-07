@@ -1,29 +1,42 @@
-# FAQ AI Bot
+# 🤖 FAQ Bot with AI Capabilities
 
-A simple FAQ chatbot that answers customer questions using keyword matching.
+A smart FAQ chatbot that answers customer questions. Built step by step for learning and portfolio.
 
-## Features
+## 🚀 Features
+
+### Version 1 (Basic)
 - Loads FAQs from JSON file
-- Case-insensitive matching
-- Easy to extend with more questions
+- Simple keyword matching
+- Case-insensitive search
 
-## How to Run
+### Version 2 (Current)
+- ✅ **Fuzzy matching** for typos and variations
+- ✅ Handles questions like "reset my passwerd" (typo)
+- ✅ Understands word order differences
+- ✅ Similarity threshold (60% match)
 
-1. Clone the repository
-2. Create virtual environment: `python -m venv venv`
-3. Activate it
-4. Run: `python bot_v1.py`
+### Version 3 (Coming Soon)
+- OpenAI API integration
+- Answers questions not in FAQ
+- "Learn and save" feature
 
-## Sample Questions
-- "What are your business hours?"
-- "How do I reset my password?"
-- "What is your refund policy?"
+## 📋 How to Run
 
-## Next Steps
-- Add fuzzy matching for typos
-- Integrate OpenAI API for unknown questions
-- Add web interface
+```bash
+# 1. Clone the repository
+git clone https://github.com/lemiyarasheed/faq-ai-bot.git
 
-## Technologies
-- Python 3.9+
-- JSON for data storage
+# 2. Navigate to folder
+cd faq-ai-bot
+
+# 3. Create virtual environment
+python -m venv venv
+
+# 4. Activate it
+# Windows:
+venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
+
+# 5. Run the bot
+python bot_v2.py
