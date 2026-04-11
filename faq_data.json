@@ -1,14 +1,28 @@
 {
- "faqs":[
-         {
-         "question":"What are your working hours?",
-         "answer":"We are open Monday to Friday, 9AM to 6PM."
-         },
-{
-         "question":"How do I reset my password?",
-         "answer":"Click reset password on the log in page"
-         },
-{
-         "question":"What is your refund policy?",
-         "answer":"Full refund within 30 days of purchase."
-         }]}
+  "faqs": [
+    {
+      "question": "What are your working hours?",
+      "answer": "We are open Monday to Friday, 9AM to 6PM."
+    },
+    {
+      "question": "How do I reset my password?",
+      "answer": "Click reset password on the log in page"
+    },
+    {
+      "question": "What is your refund policy?",
+      "answer": "Full refund within 30 days of purchase."
+    },
+    {
+      "question": "Do you ship to China?",
+      "answer": "Yes, we offer shipping to China."
+    },
+    {
+      "question": "When is the best season for shopping?",
+      "answer": "Spring"
+    },
+    {
+      "question": "Where is the best place to buy a Ferrari?",
+      "answer": "You can buy a Ferrari from authorized dealerships or directly from the Ferrari company."
+    }
+  ]
+}
