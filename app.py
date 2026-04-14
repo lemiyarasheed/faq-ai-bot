@@ -1,4 +1,5 @@
-# app.py - Web interface for FAQ Bot using Streamlit
+# app.py - Web interface for FAQ Bot
+# Works on: Local (with .env) AND Hugging Face Spaces (with secrets)
 
 import json
 import os
@@ -6,10 +7,20 @@ from difflib import get_close_matches
 from openai import OpenAI
 import streamlit as st
 
-# Load API key from .env file
-from dotenv import load_dotenv
-load_dotenv()
-client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
+# === API Key Setup (Works everywhere) ===
+# Try Hugging Face secrets first, then .env file for local
+try:
+    api_key = st.secrets["OPENAI_API_KEY"]
+except:
+    from dotenv import load_dotenv
+    load_dotenv()
+    api_key = os.getenv('OPENAI_API_KEY')
+
+if not api_key:
+    st.error("⚠️ OpenAI API key not found! Please add it to secrets (Hugging Face) or .env (local).")
+    st.stop()
+
+client = OpenAI(api_key=api_key)
 
 # Page configuration
 st.set_page_config(
@@ -65,7 +76,7 @@ def save_new_faq(question, answer, file_path='faq_data.json'):
     with open(file_path, 'w', encoding='utf-8') as file:
         json.dump(data, file, indent=2, ensure_ascii=False)
 
-# Load FAQs into session state
+# Initialize session state
 if 'faqs' not in st.session_state:
     st.session_state.faqs = load_faqs()
     st.session_state.question_list = extract_question_list(st.session_state.faqs)
@@ -136,6 +147,13 @@ with st.sidebar:
             st.session_state.last_answer = None
             st.success("✅ Saved! I'll remember this for next time.")
             st.rerun()
+    
+    st.markdown("---")
+    st.markdown("## 🔑 API Status")
+    if api_key:
+        st.success("OpenAI API: Connected")
+    else:
+        st.error("OpenAI API: Missing key")
     
     st.markdown("---")
     st.markdown("## 🗑️ Clear Chat")
