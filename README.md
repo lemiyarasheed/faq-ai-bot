@@ -1,3 +1,13 @@
+---
+title: AI FAQ Bot
+emoji: 🤖
+colorFrom: blue
+colorTo: green
+sdk: streamlit
+sdk_version: "1.35.0"
+app_file: app.py
+pinned: false
+---
 # 🤖 AI-Powered FAQ Bot
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-deployed-link-here)
 
