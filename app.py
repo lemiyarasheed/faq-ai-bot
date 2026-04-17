@@ -7,6 +7,13 @@ from difflib import get_close_matches
 from openai import OpenAI
 import streamlit as st
 
+# Page configuration
+st.set_page_config(
+    page_title="AI FAQ Bot",
+    page_icon="🤖",
+    layout="centered"
+)
+
 # === API Key Setup (Works everywhere) ===
 # Try Hugging Face secrets first, then .env file for local
 try:
@@ -22,12 +29,7 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
-# Page configuration
-st.set_page_config(
-    page_title="AI FAQ Bot",
-    page_icon="🤖",
-    layout="centered"
-)
+
 
 # Title and description
 st.title("🤖 AI-Powered FAQ Bot")
